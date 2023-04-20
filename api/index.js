@@ -8,21 +8,21 @@ const port = 3000
 
 app.use(express.json())
 
-const whitelist = ['http://localhost:8080', 'https://myapp.co', 'http://127.0.0.1:5500']
-const options = {
-  origin: (origin, calback) => {
-    if (whitelist.includes(origin)) {
-      calback(null, true)
-    } else {
-      calback(new Error('no permitido'))
-    }
-  }
-}
-app.use(cors(options))
+// const whitelist = ['http://localhost:8080', 'https://myapp.co', 'http://127.0.0.1:5500']
+// const options = {
+//   origin: (origin, calback) => {
+//     if (whitelist.includes(origin)) {
+//       calback(null, true)
+//     } else {
+//       calback(new Error('no permitido'))
+//     }
+//   }
+// }
+// app.use(cors(options))
 
-// app.use(cors())
+app.use(cors())
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Hola, mi server en express')
 })
 
